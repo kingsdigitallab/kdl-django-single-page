@@ -4,13 +4,13 @@
   "dependencies": {
     "jquery": null,
     "foundation": null,
-    "font-awesome": null,
-  },
-  "ignore": [
+    "font-awesome": null
+    },
+    "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
-  ]
-}
+    ]
+  }
