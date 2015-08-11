@@ -9,7 +9,7 @@ syntax: regexp
 db\..*
 ^tmp
 build
-\.vagrant
+\.vagrant$
 local.py
 ^logs
 ^static
