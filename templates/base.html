@@ -8,13 +8,14 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <link href="//fonts.googleapis.com/css?family=Raleway:600,400,200" rel="stylesheet" type="text/css">
+
   {% compress css %}
   {# SCSS compilation relies on django compressor #}
   <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/main.scss' %}" />
   {% endcompress %}
 
   {% block stylesheets %}{% endblock %}
-
 
   <script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
 
