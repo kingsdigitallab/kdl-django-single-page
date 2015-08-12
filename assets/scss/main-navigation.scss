@@ -9,7 +9,7 @@
       }
       li.active {
         a {
-          background-color:#a54836 !important;
+          background-color:darken( $topbar-bg-color, 5%) !important;
         }
       }
     }
