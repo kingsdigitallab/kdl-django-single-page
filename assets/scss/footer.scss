@@ -1,0 +1,133 @@
+// footer
+
+.footer-section {
+  @include grid-row();
+  background-color:#f5f5f5;
+  border-top:1px solid #ccc;
+
+
+
+  h4 {
+    color: #333;
+    font-size:rem-calc(16px);
+    text-shadow:1px 1px 1px #ccc;
+  }
+
+  .narrow-footer-column {
+    @include grid-sizing(12, 6, 2);
+  }
+
+  .wide-footer-column {
+    @include grid-sizing(12, 12, 6);
+  }
+  ul.footer-links {
+    margin-top:20px;
+    margin-left:0;
+
+    li {
+      list-style-type:none;
+    }
+
+    .logo {
+      float:left;
+      display:inline;
+      @media #{$small-only} {
+        float: none;
+        display:block;
+        clear:both;
+        margin-bottom: rem-calc(10px);
+      }
+
+      a {
+        display:block;
+        background-size:cover;
+        text-indent:-9999px;
+        opacity:0.8;
+
+        &:hover {
+          opacity:1;
+        }
+      }
+
+
+      img {
+        opacity:0.8;
+      }
+    }
+
+
+    .logo.ahrc {
+      a {
+        width:170px;
+        height: 44px;
+        background-image:url(../../images/ahrc-logo-bw.png);
+        &:hover {
+          background-image: url(../../images/ahrc-logo.png);
+        }
+      }
+
+    }
+    .logo.ies {
+      a {
+        width: 197px;
+        height: 38px;
+        background-image:url(../../images/ies-logo-bw.png);
+        &:hover {
+          background-image:url(../../images/ies-logo.jpg);
+        }
+      }
+
+    }
+    .logo.na {
+      @media #{$small-only} {
+        float:none !important;
+        clear:both;
+      }
+      a {
+        margin-left: rem-calc(10px);
+        background-color:#fff;
+        display:inline-block;
+        overflow:auto;
+        max-width:200px;
+        @media #{$small-only} {
+          margin-left:0;
+        }
+
+
+        width:200px;
+        height: 35px;
+        background-image:url(../../images/na-logo-bw.png);
+
+        &:hover {
+          background-image:url(../../images/na-logo.png);
+        }
+      }
+    }
+
+    .logo.ddh {
+      a {
+        margin-left: rem-calc(10px);
+        background-color:#fff;
+        display: inline-block;
+        overflow: auto;
+        padding: rem-calc(5px);
+        @media #{$small-only} {
+          margin-left:0;
+        }
+
+        width: 60px;
+        height: 58px;
+        background-image:url(../../images/dh-logo-bw.png);
+
+        &:hover {
+          background-image:url(../../images/dh-logo.png);
+        }
+      }
+      img {
+
+        width:60px;
+        background-color:#fff;
+      }
+    }
+  }
+}

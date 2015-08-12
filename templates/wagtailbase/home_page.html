@@ -1,0 +1,31 @@
+{% extends "wagtailbase/base.html" %}
+{% load staticfiles wagtailcore_tags wagtailimages_tags wagtailbase_tags %}
+
+{% block overtitle %}
+
+{% if self.attachments.first.image %}
+{% image self.attachments.first.image width-767 as splashimagedata %}
+
+<div class="image-caption">
+  <a href="{{ self.attachments.first.link }}">
+    <img src="{{ splashimagedata.url }}" width="{{ splashimagedata.width }}" height="{{ splashimagedata.height }}" alt="{{ splashimagedata.alt }}" title="{{ self.attachments.first.caption }}" />
+
+    <p class="caption">{{ self.attachments.first.caption }}</p>
+</a>
+</div>
+{% endif %}
+
+<h1>{{ self.title }}</h1>
+{% endblock %}
+
+{% block main %}
+{{ self.content | richtext }}
+
+{% block attachments %}
+{% include "wagtailbase/includes/attachments.html" with attachments=self.attachments.all|slice:"1:" title="Attachments" class="attachments" %}
+{% endblock %}
+
+{% endblock %}
+
+{% block side_bar %}
+{% endblock %}

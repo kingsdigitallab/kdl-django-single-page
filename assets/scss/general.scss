@@ -1,0 +1,28 @@
+
+.button,
+button {
+  background-color: $button-background-color;
+}
+
+.button:hover,
+button:hover {
+  background-color: $button-background-hover-color;
+}
+
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: $body-bg;
+  background-image: url('../../images/content-bg.png');
+  height: 100%;
+}
+
+.wrapper {
+  border-left: 1px solid $gray-subtle;
+  border-right: 1px solid $gray-subtle;
+  margin: 0 auto;
+  max-width: 1200px;
+}

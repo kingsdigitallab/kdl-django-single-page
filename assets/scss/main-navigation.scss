@@ -1,0 +1,40 @@
+.main-navigation-container {
+
+  .top-bar {
+    ul {
+      li:first-child {
+        a {
+          margin-left: 15px !important;
+        }
+      }
+      li.active {
+        a {
+          background-color:#a54836 !important;
+        }
+      }
+    }
+
+    .top-bar-section {
+      .main-navigation {
+        @extend left;
+      }
+    }
+  }
+
+  .top-bar.primary.expanded {
+    li:first-child {
+      a {
+        margin-left:0 !important;
+      }
+      a:after {
+        box-shadow:0 !important;
+      }
+    }
+    .toggle-topbar.menu-icon {
+      a {
+        color:#fff;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,22 @@
+@import '../vendor/foundation/scss/normalize';
+
+@import 'settings';
+
+@import '../vendor/foundation/scss/foundation';
+
+$fa-font-path:   '../../vendor/font-awesome/fonts';
+@import '../vendor/font-awesome/scss/font-awesome';
+
+@import 'functions';
+
+// kdl specific
+@import 'general';
+
+@import 'header';
+@import 'main-navigation';
+@import 'search-box';
+@import 'main-section';
+@import 'blog';
+@import 'search-results';
+@import 'filters';
+@import 'footer';

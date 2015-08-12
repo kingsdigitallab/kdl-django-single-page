@@ -1,0 +1,150 @@
+// Blog
+
+section.content-section {
+  main {
+    ul.posts {
+      @extend ul.no-bullet;
+
+      > li {
+        list-style-type:none;
+        border-bottom:1px solid #ddd;
+        margin-bottom:rem-calc(20px);
+      }
+    }
+
+
+    .post {
+      h2 {
+        margin-bottom: 0;
+      }
+
+      header {
+        padding-bottom:5px;
+        clear: both;
+
+        .byline {
+          color:#585858;
+          border-bottom:4px solid #616F7B;
+          padding-bottom:rem-calc(15px);
+          font-size:rem-calc(14px);
+          margin-bottom:1.25rem;
+
+          ul.tags {
+            margin-left: 0;
+            font-size: inherit;
+
+            display: inline;
+
+            li {
+              float: none;
+              display: inline;
+            }
+          }
+        }
+      }
+
+      .image-caption {
+        position:relative;
+        overflow:hidden;
+
+        img {
+          margin-bottom:0;
+          border:1px solid #ccc;
+        }
+        .caption {
+          position:absolute;
+          background-color:$primary-color;
+          opacity:0.7;
+          color:#fff;
+          padding:rem-calc(15px);
+          bottom:0;
+          right:0;
+          left:0;
+          display:block;
+          background-color:#333;
+          font-size: rem-calc(14px);
+
+          a {
+            color: darken(#fff,10%);
+          }
+        }
+      }
+
+      footer {
+        clear: both;
+      }
+
+    }
+
+    .pagination-links {
+      display: block;
+      clear: both;
+
+      .newer {
+        @include button(
+          $padding:$button-sml,
+          $radius:true,
+          $disabled:false);
+        @extend .left;
+
+      }
+
+      .older {
+        @include button(
+          $padding:$button-sml,
+          $radius:true,
+          $disabled:false);
+
+        @extend .right;
+      }
+
+      .newer, .older {
+        &.disabled {
+          @include button(
+            $padding:$button-sml,
+            $radius:true,
+            $disabled:true);
+        }
+      }
+    }
+  }
+
+  aside.archives {
+    background-image:url(../../images/content-bg.png), url(../../images/moi-stamp.png);
+    background-repeat:repeat, no-repeat;
+    background-position:top left,120% 30%;
+
+    .archives_link {
+      @include button(
+        $padding:$button-sml,
+        $bg:#fff,
+        $radius:false,
+        $full-width:true);
+      @include dropdown-button(
+        $pip-color: #333);
+      @include inset-shadow;
+    }
+  }
+
+
+  ul.tweets {
+    @extend ul.no-bullet;
+
+
+    li {
+      margin-left:0;
+      margin-bottom: rem-calc(20px);
+      list-style-type:none;
+      font-size:rem-calc(14px);
+    }
+    li:last-child {
+      margin-bottom:0;
+      text-align:center;
+      a.button {
+        margin-bottom:0;
+      }
+
+    }
+  }
+
+}
