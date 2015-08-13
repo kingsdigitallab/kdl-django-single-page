@@ -266,7 +266,8 @@
     tags:
       - django
 
-  - name: django | search index
-    command: "{{ user_home }}/venv/bin/python {{ project_root }}/manage.py update_index"
-    tags:
-      - django
+  # FIXME: this is failing with a connection refused error, as if elasticsearch was not running
+  # - name: django | search index
+  #   command: "{{ user_home }}/venv/bin/python {{ project_root }}/manage.py update_index"
+  #   tags:
+  #     - django
