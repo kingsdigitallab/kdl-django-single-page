@@ -77,8 +77,6 @@
     tags:
       - system
 
-  - service: name=elasticsearch state=started
-
   - name: zsh | clone oh-my-zsh repo
     git: repo={{ zsh.oh_my_zsh }} dest={{ user_home }}/.oh-my-zsh
     tags:
@@ -110,7 +108,7 @@
     - vars.yml
   gather_facts: false
   tasks:
-  - name: pip | Setup virtualenv
+  - name: pip | setup virtualenv
     command: mkdir -p {{ python.virtualenv_location }}
     command: virtualenv {{ python.virtualenv_location }}
     tags:
@@ -132,7 +130,7 @@
     tags:
       - python
 
-  - name: pip | Ensure python requirements are installed to latest version
+  - name: pip | ensure python requirements are installed to latest version
     pip:
       requirements: "{{ project_root }}/{{ python.requirements }}"
       virtualenv: "{{ python.virtualenv_location }}"
@@ -152,7 +150,7 @@
     tags:
       - db
 
-  - name: postgresql | Ensure postgresql user can authenticate
+  - name: postgresql | ensure postgresql user can authenticate
     sudo: yes
     lineinfile:
       dest: /etc/postgresql/{{ postgresql.version }}/main/pg_hba.conf
@@ -160,13 +158,13 @@
       regexp: "^local\\s+all\\s+{{ postgresql.admin_user }}\\s+peer$"
       line: "local\\tall\\t\\t{{ postgresql.admin_user }}\\t\\t\\t\\t{{ postgresql.default_auth_method }}"
     notify:
-      - postgresql | Restart Postgres
-      - elasticsearch | Restart Elasticsearch
+      - postgresql | restart postgres
+      - elasticsearch | restart elasticsearch
     tags:
       - db
 
   handlers:
-  - name: postgresql | Restart Postgres
+  - name: postgresql | restart postgres
     sudo: yes
     service:
       name: postgresql
@@ -174,11 +172,11 @@
     tags:
       - db
 
-  - name: elasticsearch | Restart Elasticsearch
+  - name: elasticsearch | restart elasticsearch
     sudo: yes
     service:
       name: elasticsearch
-      state: restarted
+      state: started
     tags:
       - db
 
@@ -186,7 +184,7 @@
   vars_files:
     - vars.yml
   tasks:
-  - name: postgresql | Create user
+  - name: postgresql | create user
     sudo_user: "{{ postgresql.admin_user }}"
     postgresql_user:
       user: "{{ postgresql.user }}"
@@ -195,7 +193,7 @@
     tags:
       - db
 
-  - name: postgresql | Create db
+  - name: postgresql | create db
     sudo_user: "{{ postgresql.admin_user }}"
     postgresql_db:
       name: "{{ app.name }}"
@@ -206,7 +204,7 @@
       state: present
       owner: "{{ postgresql.user }}"
     notify:
-      - postgresql | Apply privileges
+      - postgresql | apply privileges
     tags:
       - db
 
@@ -222,13 +220,13 @@
     command: psql -U {{ postgresql.admin_user }} -d {{ app.name }} -f {{ project_root }}/.vagrant_provisioning/{{ postgresql.initial_data_file }}
     when: idf.stat.exists
     notify:
-      - postgresql | Apply privileges
+      - postgresql | apply privileges after data import
     tags:
       - db
       - data
 
   handlers:
-  - name: postgresql | Apply privileges
+  - name: postgresql | apply privileges
     sudo_user: "{{ postgresql.admin_user }}"
     postgresql_privs:
       db: "{{ app.name }}"
@@ -236,6 +234,19 @@
       roles: "{{ postgresql.user }}"
       state: present
       type: database
+    tags:
+      - db
+      - data
+
+  - name: postgresql | apply privileges after data import
+    sudo_user: "{{ postgresql.admin_user }}"
+    postgresql_privs:
+      db: "{{ app.name }}"
+      objs: ALL_IN_SCHEMA
+      privs: ALL
+      roles: "{{ postgresql.user }}"
+      state: present
+      type: table
     tags:
       - db
       - data
