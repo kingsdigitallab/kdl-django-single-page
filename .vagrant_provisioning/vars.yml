@@ -1,9 +1,10 @@
 app: {name: kdl}
+user_home: /home/vagrant
 postgresql: {admin_user: postgres, cluster_name: main, cluster_reset: false, default_auth_method: trust,
   encoding: UTF-8, initial_data_file: data.sql, locale: en_GB.UTF-8, user: app_kdl,
   version: 9.1}
 project_root: /vagrant
-python: {requirements: requirements-vagrant.txt, virtualenv_location: ~/venv}
+python: {requirements: requirements-vagrant.txt, virtualenv_location: /home/vagrant/venv}
 system_packages: [ack-grep, zsh, vim-nox, python-dev, python-pip, python-psycopg2,
   python-setuptools, python-virtualenv, nfs-common, postgresql, postgresql-client,
   postgresql-server-dev-all, adminer, libldap2-dev, libsasl2-dev, libjpeg-dev, nodejs,
