@@ -235,3 +235,8 @@
     tags:
       - db
       - data
+
+  - name: django | default local settings
+    copy: src=/vagrant/.vagrant_provisioning/local_settings.py dest=/home/vagrant/{{ app.name }}/settings/local.py owner=vagrant
+    tags:
+      - django
