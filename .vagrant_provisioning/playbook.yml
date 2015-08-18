@@ -157,6 +157,16 @@
       backup: yes
       regexp: "^local\\s+all\\s+{{ postgresql.admin_user }}\\s+peer$"
       line: "local\\tall\\t\\t{{ postgresql.admin_user }}\\t\\t\\t\\t{{ postgresql.default_auth_method }}"
+    tags:
+      - db
+
+  - name: postgresql | ensure application user can authenticate
+    sudo: yes
+    lineinfile:
+      dest: /etc/postgresql/{{ postgresql.version }}/main/pg_hba.conf
+      backup: yes
+      insertafter: "local\\tall\\t\\t{{ postgresql.admin_user }}\\t\\t\\t\\t{{ postgresql.default_auth_method }}"
+      line: "local\\tall\\t\\t{{ postgresql.user }}\\t\\t\\t\\t{{ postgresql.default_auth_method }}"
     notify:
       - postgresql | restart postgres
       - elasticsearch | restart elasticsearch
@@ -213,11 +223,11 @@
       path: "{{ project_root }}/.vagrant_provisioning/{{ postgresql.initial_data_file }}"
     register: idf
     tags:
+      - db
       - data
 
   - name: posgresql | load initial data file
-    sudo_user: "{{ postgresql.admin_user }}"
-    command: psql -U {{ postgresql.admin_user }} -d {{ app.name }} -f {{ project_root }}/.vagrant_provisioning/{{ postgresql.initial_data_file }}
+    command: psql -U {{ postgresql.user }} -d {{ app.name }} -f {{ project_root }}/.vagrant_provisioning/{{ postgresql.initial_data_file }}
     when: idf.stat.exists
     notify:
       - postgresql | apply privileges after data import
