@@ -23,10 +23,14 @@ body {
 }
 
 .wrapper {
-	border-left: 1px solid $gray-subtle;
-	border-right: 1px solid $gray-subtle;
 	margin: 0 auto;
 	max-width: 1200px;
+}
+
+/* Headings */
+
+h1 {
+	font-family: 'kings-caslon-display', serif;
 }
 
 /* Header */
@@ -35,10 +39,9 @@ body {
 	@include grid-row();
 	position: relative;
 	height: 240px;
-	background-color: #fff;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-image: url(../../images/banner.jpg);
+	padding-top: 2rem;
+	/* background: url('../../images/banner.jpg') center bottom no-repeat #fff;
+	background-size: 100%; */
 
 	@media #{$small-only} {
 		height: 180px;
@@ -47,66 +50,11 @@ body {
 
 	.header-logo {
 		width: rem-calc(120px);
-		height: rem-calc(240px);
-		padding-top: rem-calc(30px);
-		padding-left: rem-calc(20px);
-		padding-right: rem-calc(20px);
-
-		@media #{$medium-up} {
-			background-image: url(../../images/logo-bg.png);
-		}
-
-		@media #{$small-only} {
-			margin-top: rem-calc(10px) !important;
-			margin-left: auto;
-			margin-right: auto;
-			height: 120px;
-			padding-top: 0;
-		}
-
-		a.logo-home {
-			height: 180px;
-			width: 100%;
-		}
-
-		.logo {
-			height: 180px;
-			width: 100%;
-			vertical-align: middle;
-			display: block;
-
-			@media #{$medium-only} {
-				margin-left: 0;
-			}
-			@media #{$small-only} {
-				height: 100px;
-				margin: 0 auto;
-			}
-		}
+		height: auto;
 	}
 
-	.strapline {
-		@media #{$small-only} {
-			display: block;
-			margin: 0 auto;
-			text-align: center;
-			p {
-				margin: 0px 0;
-				text-transform: uppercase;
-			}
-		}
-		@media #{$medium-up} {
-			position: absolute;
-			bottom: 30px;
-			left: 160px;
-			p {
-				font-size: rem-calc(20px);
-				margin: 0;
-				color: #000;
-				padding: rem-calc(15px);
-				text-transform: uppercase;
-			}
-		}
+	h1 {
+		text-align: right;
 	}
 }
 
@@ -116,11 +64,6 @@ body {
 
 	.top-bar {
 		ul {
-			li:first-child {
-				a {
-					margin-left: 15px !important;
-				}
-			}
 			li.active {
 				a {
 					background-color: darken( $topbar-bg-color, 5%) !important;
@@ -339,7 +282,6 @@ main {
 			}
 
 			i {
-				text-shadow: 1px 1px 0 rgba(0,0,0, 0.7);
 				color: #fff;
 				font-size: 1rem;
 			}
@@ -364,12 +306,11 @@ button:hover {
 .footer-section {
 	@include grid-row();
 	background-color: #f5f5f5;
-	border-top: 1px solid #ccc;
+	border-top: 1px solid $gray-subtle;
 
 	h4 {
 		color: #333;
 		font-size: rem-calc(16px);
-		text-shadow: 1px 1px 1px #ccc;
 	}
 
 	.narrow-footer-column {
@@ -378,111 +319,5 @@ button:hover {
 
 	.wide-footer-column {
 		@include grid-sizing(12, 12, 6);
-	}
-
-	ul.footer-links {
-		margin-top: 20px;
-		margin-left: 0;
-
-		li {
-			list-style-type:none;
-		}
-
-		.logo {
-			float:left;
-			display:inline;
-			@media #{$small-only} {
-				float: none;
-				display: block;
-				clear: both;
-				margin-bottom: rem-calc(10px);
-			}
-
-			a {
-				display: block;
-				background-size: cover;
-				text-indent: -9999px;
-				opacity: .8;
-
-				&:hover {
-					opacity: 1;
-				}
-			}
-
-			img {
-				opacity: .8;
-			}
-		}
-
-
-		.logo.ahrc {
-			a {
-				width: 170px;
-				height: 44px;
-				background-image: url(../../images/ahrc-logo-bw.png);
-				&:hover {
-					background-image: url(../../images/ahrc-logo.png);
-				}
-			}
-		}
-
-		.logo.ies {
-			a {
-				width: 197px;
-				height: 38px;
-				background-image: url(../../images/ies-logo-bw.png);
-				&:hover {
-					background-image: url(../../images/ies-logo.jpg);
-				}
-			}
-		}
-
-		.logo.na {
-			@media #{$small-only} {
-				float: none !important;
-				clear: both;
-			}
-			a {
-				margin-left: rem-calc(10px);
-				background-color: #fff;
-				display: inline-block;
-				overflow: auto;
-				max-width: 200px;
-				@media #{$small-only} {
-					margin-left: 0;
-				}
-				width: 200px;
-				height: 35px;
-				background-image: url(../../images/na-logo-bw.png);
-				&:hover {
-				  background-image:url(../../images/na-logo.png);
-				}
-			}
-		}
-
-		.logo.ddh {
-			a {
-				margin-left: rem-calc(10px);
-				background-color: #fff;
-				display: inline-block;
-				overflow: auto;
-				padding: rem-calc(5px);
-				@media #{$small-only} {
-					margin-left: 0;
-				}
-
-				width: 60px;
-				height: 58px;
-				background-image: url(../../images/dh-logo-bw.png);
-
-				&:hover {
-					background-image: url(../../images/dh-logo.png);
-				}
-			}
-			img {
-				width: 60px;
-				background-color: #fff;
-			}
-		}
 	}
 }

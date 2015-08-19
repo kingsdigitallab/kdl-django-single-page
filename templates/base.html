@@ -50,28 +50,12 @@
       {% endblock %}
 
       {% block content_section %}
-      <main>
+      <main class="full-width">
         {% block overtitle %}
         <h1>{% block title %}{% endblock %}</h1>
         {% endblock %}
         {% block main %}{% endblock %}
       </main>
-
-      <div class="sidebar">
-        {% block side_bar %}
-        <aside class="local-navigation">
-          <h4>In this section</h4>
-          {% block local_menu %}{% endblock %}
-        </aside>
-
-        <aside class="latest-post">
-          <h4>Latest post</h4>
-          {% block latest_blog_post %}{% endblock %}
-        </aside>
-
-        {% block side_bar_sections %}{% endblock %}
-        {% endblock %}
-      </div>
       {% endblock %}
     </section>
 
