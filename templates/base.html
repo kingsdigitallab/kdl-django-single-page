@@ -8,7 +8,9 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link href="//fonts.googleapis.com/css?family=Raleway:600,400,200" rel="stylesheet" type="text/css">
+  <!-- King's Calson Display Typekit -->
+  <script src="//use.typekit.net/sfw5iwq.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
   {% compress css %}
   {# SCSS compilation relies on django compressor #}
@@ -48,28 +50,12 @@
       {% endblock %}
 
       {% block content_section %}
-      <main>
+      <main class="full-width">
         {% block overtitle %}
         <h1>{% block title %}{% endblock %}</h1>
         {% endblock %}
         {% block main %}{% endblock %}
       </main>
-
-      <div class="sidebar">
-        {% block side_bar %}
-        <aside class="local-navigation">
-          <h4>In this section</h4>
-          {% block local_menu %}{% endblock %}
-        </aside>
-
-        <aside class="latest-post">
-          <h4>Latest post</h4>
-          {% block latest_blog_post %}{% endblock %}
-        </aside>
-
-        {% block side_bar_sections %}{% endblock %}
-        {% endblock %}
-      </div>
       {% endblock %}
     </section>
 

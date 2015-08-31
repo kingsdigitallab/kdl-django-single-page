@@ -92,16 +92,16 @@
     tags:
       - system
 
-  - name: vim | download spf13
-    get_url: url={{ vim.spf13 }} dest={{ vim.spf13_install }}
-    tags:
-      - system
+  # - name: vim | download spf13
+  #   get_url: url={{ vim.spf13 }} dest={{ vim.spf13_install }}
+  #   tags:
+  #     - system
 
-  - name: vim | install spf13
-    sudo_user: vagrant
-    command: sh {{ vim.spf13_install }}
-    tags:
-      - system
+  # - name: vim | install spf13
+  #   sudo_user: vagrant
+  #   command: sh {{ vim.spf13_install }}
+  #   tags:
+  #     - system
 
 - hosts: all
   vars_files:
