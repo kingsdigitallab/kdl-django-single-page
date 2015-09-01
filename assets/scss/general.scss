@@ -27,6 +27,10 @@ body {
 	max-width: 1200px;
 }
 
+.shades-eighty {
+	background-color: scale-color($secondary-color, $lightness: 85%);
+}
+
 /* Headings */
 
 h1 {
@@ -104,6 +108,13 @@ h1 {
 			}
 		}
 	}
+}
+
+/* Home specific */
+
+.home-box-content .columns {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
 }
 
 /* Main section */
@@ -316,7 +327,7 @@ button:hover {
 
 .footer-section {
 	@include grid-row();
-	background-color: #f5f5f5;
+	background-color: scale-color($tertiary-color, $lightness: 80%);
 	border-top: 1px solid $gray-subtle;
 
 	h4 {

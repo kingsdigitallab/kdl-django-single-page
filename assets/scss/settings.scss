@@ -60,13 +60,15 @@ $button-background-hover-color: darken($button-background-color, 5%);
 // $default-float: left;
 
 // We use these as default colors throughout
-$primary-color: #6888a4;
-// $secondary-color: #e7e7e7;
+// $primary-color: #6888a4;
+$primary-color: #172d5b; // rgba(23, 45, 91, 1)
+$secondary-color: rgba(40, 195, 130, 1); // #28c382
+$tertiary-color: #616f7b;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
 // $warning-color: #f08a24;
 // $info-color: #a0d3e8;
-$midnight-blue: #172d5b; // rgba(23, 45, 91, 1)
+$midnight-blue: $primary-color;
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 3px;
@@ -1137,7 +1139,7 @@ $header-font-color: #3d3c3c;
 
 // Background color for the top bar
 // $topbar-bg-color: rgba(40, 195, 130, 1); // #28c382;
-$topbar-bg-color: $midnight-blue;
+$topbar-bg-color: $tertiary-color;
 $topbar-bg: $topbar-bg-color;
 
 // Height and margin
