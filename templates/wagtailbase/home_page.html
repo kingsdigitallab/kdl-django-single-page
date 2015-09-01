@@ -24,28 +24,44 @@
 {% include "wagtailbase/includes/attachments.html" with attachments=self.attachments.all|slice:"1:" title="Attachments" class="attachments" %}
 {% endblock %}
 
-<div class="row" data-equalizer>
+<div class="row home-box-content" data-equalizer>
 	<div class="large-4 columns">
-		<div class="panel" data-equalizer-watch>
+		<div class="panel radius shades-eighty" data-equalizer-watch>
 			<p>Content</p>
 		</div>
+		<a href="#" class="button radius expand">Find out more</a>
 	</div>
 	<div class="large-4 columns">
-		<div class="panel" data-equalizer-watch>
+		<div class="panel radius shades-eighty" data-equalizer-watch>
 			<p>Content</p>
 			<p>Content</p>
 		</div>
+		<a href="#" class="button radius expand">Find out more</a>
 	</div>
 	<div class="large-4 columns">
-		<div class="panel" data-equalizer-watch>
+		<div class="panel radius shades-eighty" data-equalizer-watch>
 			<p>Content</p>
 			<p>Content</p>
 			<p>Content</p>
 		</div>
+		<a href="#" class="button radius expand">Find out more</a>
 	</div>
 </div>
 
 {% endblock %}
 
 {% block side_bar %}
+{% endblock %}
+
+<!-- Temporarily putting footer scripts here
+     while solving the issue on why they are
+     not loading in this template -->
+
+{% block footer_scripts %}
+<script src="{% static 'vendor/foundation/js/foundation.min.js' %}"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$(document).foundation();
+	});
+</script>
 {% endblock %}
