@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>{% block meta_title %}{% endblock %}</title>
+  <title>{% block meta_title %}{% endblock %} | KDL</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -64,16 +64,16 @@
       {% include 'includes/footer.html' %}
       {% endblock %}
     </footer>
-
-    {% block footer_scripts %}
-    <script src="{% static 'vendor/foundation/js/foundation.min.js' %}"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $(document).foundation();
-      });
-    </script>
-    {% endblock %}
   </div>
+
+  {% block footer_scripts %}
+  <script src="{% static 'vendor/foundation/js/foundation.min.js' %}"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $(document).foundation();
+    });
+  </script>
+  {% endblock %}
 
   {% wagtailuserbar %}
 </body>

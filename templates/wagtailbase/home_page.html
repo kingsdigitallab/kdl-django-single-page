@@ -24,6 +24,27 @@
 {% include "wagtailbase/includes/attachments.html" with attachments=self.attachments.all|slice:"1:" title="Attachments" class="attachments" %}
 {% endblock %}
 
+<div class="row" data-equalizer>
+	<div class="large-4 columns">
+		<div class="panel" data-equalizer-watch>
+			<p>Content</p>
+		</div>
+	</div>
+	<div class="large-4 columns">
+		<div class="panel" data-equalizer-watch>
+			<p>Content</p>
+			<p>Content</p>
+		</div>
+	</div>
+	<div class="large-4 columns">
+		<div class="panel" data-equalizer-watch>
+			<p>Content</p>
+			<p>Content</p>
+			<p>Content</p>
+		</div>
+	</div>
+</div>
+
 {% endblock %}
 
 {% block side_bar %}

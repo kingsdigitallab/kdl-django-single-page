@@ -30,7 +30,8 @@ body {
 /* Headings */
 
 h1 {
-	font-family: 'kings-caslon-display', serif;
+	font-family: 'kings-caslon-display', serif; // Via TypeKit
+	color: $midnight-blue;
 }
 
 /* Header */
@@ -38,23 +39,33 @@ h1 {
 .header-section {
 	@include grid-row();
 	position: relative;
-	height: 240px;
+	min-height: 240px;
 	padding-top: 2rem;
-	/* background: url('../../images/banner.jpg') center bottom no-repeat #fff;
-	background-size: 100%; */
-
-	@media #{$small-only} {
-		height: 180px;
-		background-size: cover;
-	}
+	background: url('../../images/header.svg');
 
 	.header-logo {
-		width: rem-calc(120px);
+		width: rem-calc(196px);
 		height: auto;
+		padding-left: rem-calc(14px);
+		display: block;
 	}
 
 	h1 {
 		text-align: right;
+		padding-right: rem-calc(16px);
+		margin-top: rem-calc(120px);
+	}
+
+	@media #{$small-only} {
+		h1 {
+			margin-top: 0;
+		}
+	}
+
+	@media #{$medium-only} {
+		h1 {
+			margin-top: 0;
+		}
 	}
 }
 
