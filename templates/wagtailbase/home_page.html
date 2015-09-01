@@ -52,16 +52,3 @@
 
 {% block side_bar %}
 {% endblock %}
-
-<!-- Temporarily putting footer scripts here
-     while solving the issue on why they are
-     not loading in this template -->
-
-{% block footer_scripts %}
-<script src="{% static 'vendor/foundation/js/foundation.min.js' %}"></script>
-<script type="text/javascript">
-	$(document).ready(function () {
-		$(document).foundation();
-	});
-</script>
-{% endblock %}
