@@ -30,7 +30,8 @@ body {
 /* Headings */
 
 h1 {
-	font-family: 'kings-caslon-display', serif;
+	font-family: 'kings-caslon-display', serif; // Via TypeKit
+	color: $midnight-blue;
 }
 
 /* Header */
@@ -40,19 +41,13 @@ h1 {
 	position: relative;
 	min-height: 240px;
 	padding-top: 2rem;
-	/* background: url('../../images/banner.jpg') center bottom no-repeat #fff;
-	background-size: 100%; */
 	background: url('../../images/header.svg');
-
-	/* @media #{$small-only} {
-		height: 180px;
-		background-size: cover;
-	} */
 
 	.header-logo {
 		width: rem-calc(196px);
 		height: auto;
 		padding-left: rem-calc(14px);
+		display: block;
 	}
 
 	h1 {

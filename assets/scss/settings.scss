@@ -66,6 +66,7 @@ $primary-color: #6888a4;
 // $success-color: #43AC6A;
 // $warning-color: #f08a24;
 // $info-color: #a0d3e8;
+$midnight-blue: #172d5b; // rgba(23, 45, 91, 1)
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 3px;
@@ -1136,7 +1137,7 @@ $header-font-color: #3d3c3c;
 
 // Background color for the top bar
 // $topbar-bg-color: rgba(40, 195, 130, 1); // #28c382;
-$topbar-bg-color: $primary-color;
+$topbar-bg-color: $midnight-blue;
 $topbar-bg: $topbar-bg-color;
 
 // Height and margin
