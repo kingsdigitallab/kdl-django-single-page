@@ -143,8 +143,9 @@ section.content-section {
 	main {
 		@include grid-sizing(12, 12, 8);
 		background-color: #fff;
-		opacity: .8;
 		margin-top: rem-calc(20px);
+		padding-left: 0 !important;
+		padding-right: 0 !important;
 	}
 
 	main.full-width {
@@ -186,9 +187,9 @@ section.content-section {
 
 		.image-caption {
 			position: relative;
+			margin-bottom: 1rem;
 			img {
 				margin-bottom: 0;
-				border: 1px solid #ccc;
 			}
 			.caption {
 				position: absolute;
@@ -197,11 +198,9 @@ section.content-section {
 				left: 0;
 				margin-bottom: 0;
 				background-color: $primary-color;
-				opacity: .7;
 				color: #fff;
 				padding: rem-calc(15px);
 				display: block;
-				background-color: #333;
 				font-size: rem-calc(14px);
 
 				a {

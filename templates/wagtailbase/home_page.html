@@ -4,13 +4,14 @@
 {% block overtitle %}
 
 {% if self.attachments.first.image %}
-{% image self.attachments.first.image width-767 as splashimagedata %}
+{% image self.attachments.first.image width-1200 as splashimagedata %}
 
 <div class="image-caption">
   <a href="{{ self.attachments.first.link }}">
     <img src="{{ splashimagedata.url }}" width="{{ splashimagedata.width }}" height="{{ splashimagedata.height }}" alt="{{ splashimagedata.alt }}" title="{{ self.attachments.first.caption }}" />
-
+    {% if self.attachments.first.caption %}
     <p class="caption">{{ self.attachments.first.caption }}</p>
+    {% endif %}
 </a>
 </div>
 {% endif %}
@@ -18,7 +19,11 @@
 {% endblock %}
 
 {% block main %}
-{{ self.content | richtext }}
+<div class="row">
+	<div class="large-12 columns">
+	{{ self.content | richtext }}
+	</div>
+</div>
 
 {% block attachments %}
 {% include "wagtailbase/includes/attachments.html" with attachments=self.attachments.all|slice:"1:" title="Attachments" class="attachments" %}

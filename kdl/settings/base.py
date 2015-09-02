@@ -265,3 +265,5 @@ WAGTAILSEARCH_BACKENDS = {
         'FORCE_NEW': False,
     }
 }
+
+ITEMS_PER_PAGE = ws.ITEMS_PER_PAGE
