@@ -249,6 +249,29 @@ section.content-section {
 	}
 }
 
+/* Blog */
+
+.posts li {
+	border-bottom: 1px solid scale-color($secondary-color, $lightness: 50%);
+	margin: 1rem 0 .5rem;
+}
+
+h2.posttitle {
+	margin-bottom: .25rem !important;
+}
+
+.posts p.byline {
+	font-size: rem-calc(14px);
+	font-style: italic;
+}
+
+.byline a:before {
+	content: "\f007 ";
+	font-family: 'FontAwesome';
+	font-style: normal;
+	color: scale-color($tertiary-color, $lightness: 30%);
+}
+
 /* Search */
 
 .main-navigation-container {
