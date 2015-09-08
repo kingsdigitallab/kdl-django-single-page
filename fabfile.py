@@ -152,7 +152,7 @@ def deploy(branch=None):
     migrate()
     own_django_log()
     collect_static()
-    clear_cache()
+    # clear_cache()
     update_index()
     touch_wsgi()
 
