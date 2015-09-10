@@ -1,9 +1,17 @@
 {% load staticfiles wagtailcore_tags %}
 
-<div class="narrow-footer-column">
-  <ul class="no-bullet">
-    <li><h4>Find out more</h4></li>
-    <li><a href="{% slugurl 'contact' %}">Contact Us</a></li>
-    <li><a href="{% slugurl 'privacy' %}">Privacy</a></li>
-  </ul>
+<div class="row">
+	<div class="large-6 columns">
+		<div class="footer-logo">		
+			<a href="/" class="logo-home">
+				<img src="{% static 'images/KCL-KDL-logo-Midnight-Blue.svg' %}" alt="King's Digital Laboratory" class="logo">
+			</a>
+		</div>
+	</div>
+	<div class="large-6 columns">
+	  <ul class="sub-nav right">
+	    <li><a href="{% slugurl 'contact' %}">Contact</a></li>
+	    <li><a href="{% slugurl 'privacy' %}">Privacy</a></li>
+	  </ul>
+	</div>
 </div>

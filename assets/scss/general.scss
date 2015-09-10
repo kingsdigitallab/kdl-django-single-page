@@ -110,6 +110,17 @@ h1 {
 	}
 }
 
+/* Subnavigation */
+
+.sub-nav li {
+	list-style: none;
+	margin-left: .5rem;
+}
+
+.sub-nav li:before {
+	content: "/ ";
+}
+
 /* Home specific */
 
 .home-box-content .columns {
@@ -351,10 +362,12 @@ button:hover {
 	@include grid-row();
 	background-color: scale-color($tertiary-color, $lightness: 80%);
 	border-top: 1px solid $gray-subtle;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 
-	h4 {
-		color: #333;
-		font-size: rem-calc(16px);
+	p,
+	ul {
+		font-size: rem-calc(14px);
 	}
 
 	.narrow-footer-column {
@@ -364,4 +377,8 @@ button:hover {
 	.wide-footer-column {
 		@include grid-sizing(12, 12, 6);
 	}
+}
+
+.footer-logo img {
+	max-width: 120px;
 }
