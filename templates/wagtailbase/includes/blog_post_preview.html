@@ -11,15 +11,16 @@
 
 {% block blog_post_content %}
 <section class="postcontent">
-    {% comment %}{{ post.content|richtext|truncatewords_html:75 }}{% endcomment %}
-    <!-- TODO: Fix this, because it doesn't work -->
     {% with post.attachments.first as attachment %}
     {% if attachment.image %}
-    {% image attachment.image fill-80x80 as attachmentimagedata %}
-    <img src="{{ attachmentimagedata.url }}" alt="{{ attachmentimagedata.alt }}
-    ">
+    <div class="thumb">
+	    {% image attachment.image fill-80x80 as attachmentimagedata %}
+	    <img src="{{ attachmentimagedata.url }}" alt="{{ attachmentimagedata.alt }}
+	    ">
+    </div>
     {% endif %}
     {% endwith %}
+    {{ post.content|richtext|truncatewords_html:75 }}
 </section>
 {% endblock %}
 

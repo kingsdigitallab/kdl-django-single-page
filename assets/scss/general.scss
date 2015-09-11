@@ -41,7 +41,7 @@ h1 {
 /* Header */
 
 .header-section {
-	@include grid-row();
+	// @include grid-row();
 	position: relative;
 	min-height: 240px;
 	padding-top: 2rem;
@@ -126,6 +126,10 @@ h1 {
 .home-box-content .columns {
 	margin-left: 0 !important;
 	margin-right: 0 !important;
+}
+
+.superimage img {
+	width: 100%;
 }
 
 /* Main section */
@@ -260,11 +264,19 @@ section.content-section {
 	}
 }
 
+.thumb {
+	float: left;
+	margin-right: rem-calc(16px);
+}
+
 /* Blog */
 
 .posts li {
 	border-bottom: 1px solid scale-color($secondary-color, $lightness: 50%);
 	margin: 1rem 0 .5rem;
+	display: block;
+	clear: both;
+	overflow: hidden;
 }
 
 h2.posttitle {
@@ -359,7 +371,7 @@ button:hover {
 /* Footer */
 
 .footer-section {
-	@include grid-row();
+	// @include grid-row();
 	background-color: scale-color($tertiary-color, $lightness: 80%);
 	border-top: 1px solid $gray-subtle;
 	padding-top: 1rem;

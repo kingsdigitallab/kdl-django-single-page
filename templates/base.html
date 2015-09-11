@@ -28,43 +28,45 @@
   <script src="{% static 'vendor/modernizr/modernizr.js' %}"></script>
 </head>
 <body class="{% block body_class %}{% endblock %}">
-  <div class="wrapper">
 
-    {% include 'includes/header.html' %}
+  {% include 'includes/header.html' %}
 
-    <div class="main-navigation-container contain-to-grid">
-      {% include 'includes/navigation.html' %}
-    </div>
-
-    <section class="content-section">
-      {% block messages %}
-
-      {% if messages %}
-      <ul id="messages">
-        {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-
-      {% endblock %}
-
-      {% block content_section %}
-      <main class="full-width">
-        {% block overtitle %}
-        <h1>{% block title %}{% endblock %}</h1>
-        {% endblock %}
-        {% block main %}{% endblock %}
-      </main>
-      {% endblock %}
-    </section>
-
-    <footer class="footer-section">
-      {% block footer %}
-      {% include 'includes/footer.html' %}
-      {% endblock %}
-    </footer>
+  <div class="main-navigation-container contain-to-grid">
+    {% include 'includes/navigation.html' %}
   </div>
+
+  {% block superimage %}
+
+  {% endblock %}
+
+  <section class="content-section">
+    {% block messages %}
+
+    {% if messages %}
+    <ul id="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% endblock %}
+
+    {% block content_section %}
+    <main class="full-width">
+      {% block overtitle %}
+      <h1>{% block title %}{% endblock %}</h1>
+      {% endblock %}
+      {% block main %}{% endblock %}
+    </main>
+    {% endblock %}
+  </section>
+
+  <footer class="footer-section">
+    {% block footer %}
+    {% include 'includes/footer.html' %}
+    {% endblock %}
+  </footer>
 
   {% block footer_scripts %}
   <script src="{% static 'vendor/foundation/js/foundation.min.js' %}"></script>

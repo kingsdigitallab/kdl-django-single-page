@@ -1,8 +1,8 @@
 {% extends "wagtailbase/base.html" %}
 {% load staticfiles wagtailcore_tags wagtailimages_tags wagtailbase_tags %}
 
-{% block overtitle %}
-
+{% block superimage %}
+<div class="superimage">
 {% if self.attachments.first.image %}
 {% image self.attachments.first.image width-1200 as splashimagedata %}
 
@@ -14,8 +14,12 @@
     {% endif %}
 </a>
 </div>
+</div><!-- /.superimage -->
 {% endif %}
 
+{% endblock %}
+
+{% block overtitle %}
 {% endblock %}
 
 {% block main %}
@@ -28,30 +32,6 @@
 {% block attachments %}
 {% include "wagtailbase/includes/attachments.html" with attachments=self.attachments.all|slice:"1:" title="Attachments" class="attachments" %}
 {% endblock %}
-
-<div class="row home-box-content" data-equalizer>
-	<div class="large-4 columns">
-		<div class="panel radius shades-eighty" data-equalizer-watch>
-			<p>Content</p>
-		</div>
-		<a href="#" class="button radius expand">Find out more</a>
-	</div>
-	<div class="large-4 columns">
-		<div class="panel radius shades-eighty" data-equalizer-watch>
-			<p>Content</p>
-			<p>Content</p>
-		</div>
-		<a href="#" class="button radius expand">Find out more</a>
-	</div>
-	<div class="large-4 columns">
-		<div class="panel radius shades-eighty" data-equalizer-watch>
-			<p>Content</p>
-			<p>Content</p>
-			<p>Content</p>
-		</div>
-		<a href="#" class="button radius expand">Find out more</a>
-	</div>
-</div>
 
 {% endblock %}
 
