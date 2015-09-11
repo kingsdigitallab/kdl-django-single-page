@@ -13,8 +13,13 @@
 <section class="postcontent">
     {% comment %}{{ post.content|richtext|truncatewords_html:75 }}{% endcomment %}
     <!-- TODO: Fix this, because it doesn't work -->
-	{% image attachment.image fill-80x80 as attachmentimagedata %}
-    <img src="{{ attachmentimagedata.url }}" alt="{{ attachmentimagedata.alt }}">
+    {% with post.attachments.first as attachment %}
+    {% if attachment.image %}
+    {% image attachment.image fill-80x80 as attachmentimagedata %}
+    <img src="{{ attachmentimagedata.url }}" alt="{{ attachmentimagedata.alt }}
+    ">
+    {% endif %}
+    {% endwith %}
 </section>
 {% endblock %}
 
