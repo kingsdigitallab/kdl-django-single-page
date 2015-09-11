@@ -200,30 +200,6 @@ section.content-section {
 			margin-left: rem-calc(20px);
 		}
 
-		.image-caption {
-			position: relative;
-			margin-bottom: 1rem;
-			img {
-				margin-bottom: 0;
-			}
-			.caption {
-				position: absolute;
-				bottom: 0;
-				right: 0;
-				left: 0;
-				margin-bottom: 0;
-				background-color: $primary-color;
-				color: #fff;
-				padding: rem-calc(15px);
-				display: block;
-				font-size: rem-calc(14px);
-
-				a {
-					color: darken(#fff,10%);
-				}
-			}
-		}
-
 		.attachments {
 			@include block-grid(3);
 		}
@@ -260,6 +236,26 @@ section.content-section {
 					margin-bottom: 0;
 				}
 			}
+		}
+	}
+}
+
+.image-caption {
+	position: relative;
+	margin-bottom: 1rem;
+	img {
+		margin-bottom: 0;
+	}
+	.caption {
+		position: absolute;
+		bottom: 0;
+		background-color: rgba(255, 255, 255, .7);
+		padding: rem-calc(32px) rem-calc(16px) rem-calc(16px);
+		display: block;
+		font-size: rem-calc(14px);
+
+		a {
+			color: darken(#fff,10%);
 		}
 	}
 }

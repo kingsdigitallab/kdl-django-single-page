@@ -3,17 +3,22 @@
 
 {% block superimage %}
 <div class="superimage">
-{% if self.attachments.first.image %}
-{% image self.attachments.first.image width-1200 as splashimagedata %}
+	{% if self.attachments.first.image %}
+	{% image self.attachments.first.image width-1200 as splashimagedata %}
 
-<div class="image-caption">
-  <a href="{{ self.attachments.first.link }}">
-    <img src="{{ splashimagedata.url }}" width="{{ splashimagedata.width }}" height="{{ splashimagedata.height }}" alt="{{ splashimagedata.alt }}" title="{{ self.attachments.first.caption }}" />
-    {% if self.attachments.first.caption %}
-    <p class="caption">{{ self.attachments.first.caption }}</p>
-    {% endif %}
-</a>
-</div>
+	<div class="image-caption">
+		<!-- <a href="{{ self.attachments.first.link }}"> -->
+	    	<img src="{{ splashimagedata.url }}" width="{{ splashimagedata.width }}" height="{{ splashimagedata.height }}" alt="{{ splashimagedata.alt }}" title="{{ self.attachments.first.caption }}">
+	    	<div class="contain-to-grid caption">
+	    		<div class="row">
+		    		<div class="large-12 columns">
+		    			{{ self.content | richtext }}
+		    			<a href="#" class="button radius">Find out more</a>
+		    		</div>
+	    		</div>
+	    	</div>
+		<!-- </a> -->
+	</div>
 </div><!-- /.superimage -->
 {% endif %}
 
@@ -23,11 +28,11 @@
 {% endblock %}
 
 {% block main %}
-<div class="row">
+<!-- <div class="row">
 	<div class="large-12 columns">
 	{{ self.content | richtext }}
 	</div>
-</div>
+</div> -->
 
 {% block attachments %}
 {% include "wagtailbase/includes/attachments.html" with attachments=self.attachments.all|slice:"1:" title="Attachments" class="attachments" %}
