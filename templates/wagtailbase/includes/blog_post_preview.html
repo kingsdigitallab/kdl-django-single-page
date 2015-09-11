@@ -1,0 +1,21 @@
+{% extends "wagtailbase/includes/blog_post_body.html" %}
+
+{% if post %}
+{% load staticfiles wagtailcore_tags wagtailimages_tags wagtailbase_tags %}
+
+{% block blog_post_title %}
+<h2 class="posttitle">
+    <a href="{% pageurl post %}">{{ post.title }}</a>
+</h2>
+{% endblock %}
+
+{% block blog_post_content %}
+<section class="postcontent">
+    {% comment %}{{ post.content|richtext|truncatewords_html:75 }}{% endcomment %}
+    <!-- TODO: Fix this, because it doesn't work -->
+	{% image post.image fill-80x80 as postimage %}
+	<img src="{{ postimage.url }}" alt="{{ postimage.title }}">
+</section>
+{% endblock %}
+
+{% endif %}
