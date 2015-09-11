@@ -132,6 +132,10 @@ h1 {
 	width: 100%;
 }
 
+.home section.content-section {
+	display: none;
+}
+
 /* Main section */
 
 section.content-section {
@@ -242,7 +246,6 @@ section.content-section {
 
 .image-caption {
 	position: relative;
-	margin-bottom: 1rem;
 	img {
 		margin-bottom: 0;
 	}

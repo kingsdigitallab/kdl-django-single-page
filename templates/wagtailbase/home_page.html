@@ -1,6 +1,8 @@
 {% extends "wagtailbase/base.html" %}
 {% load staticfiles wagtailcore_tags wagtailimages_tags wagtailbase_tags %}
 
+{% block body_class %}home{% endblock %}
+
 {% block superimage %}
 <div class="superimage">
 	{% if self.attachments.first.image %}
