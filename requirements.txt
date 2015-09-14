@@ -1,6 +1,7 @@
 -r wagtailbase/requirements.txt
 -r ddhldap/requirements.txt
 django-grappelli
+django-model-utils
 psycopg2
 elasticsearch
 django-redis
