@@ -13,7 +13,7 @@
 <section class="postcontent">
     {% with post.attachments.first as attachment %}
     {% if attachment.image %}
-    <div class="thumb">
+    <div class="thumb left">
 	    {% image attachment.image fill-80x80 as attachmentimagedata %}
 	    <img src="{{ attachmentimagedata.url }}" alt="{{ attachmentimagedata.alt }}
 	    ">

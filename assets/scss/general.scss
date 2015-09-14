@@ -141,6 +141,8 @@ h1 {
 section.content-section {
 	@include grid-row();
 	background-color: #fff;
+	padding-left: rem-calc(16px);
+	padding-right: rem-calc(16px);
 
 	#messages {
 		@include grid-sizing(12, 12, 12);
@@ -193,7 +195,6 @@ section.content-section {
 
 		img {
 			display:block;
-			margin-bottom: 1.25rem;
 		}
 
 		img.richtext-image.left {
@@ -246,9 +247,6 @@ section.content-section {
 
 .image-caption {
 	position: relative;
-	img {
-		margin-bottom: 0;
-	}
 	.caption {
 		position: absolute;
 		bottom: 0;
@@ -258,14 +256,23 @@ section.content-section {
 		font-size: rem-calc(14px);
 
 		a {
-			color: darken(#fff,10%);
+			color: darken(#fff, 10%);
 		}
 	}
 }
 
 .thumb {
-	float: left;
 	margin-right: rem-calc(16px);
+	padding: rem-calc(5px);
+	border: 1px solid $gray-subtle;
+	position: relative;
+
+	.caption {
+		position: absolute;
+		bottom: 0;
+		background: rgba(255, 255, 255, .7);
+		padding: rem-calc(16px);
+	}
 }
 
 /* Blog */

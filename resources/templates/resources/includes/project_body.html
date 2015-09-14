@@ -1,0 +1,17 @@
+{% if project %}
+{% load wagtailcore_tags wagtailbase_tags wagtailroutablepage_tags %}
+
+<article class="post" id="project{{ project.id }}">
+    <header>
+        {% block project_title %}
+        <h1 class="posttitle">{{ project.title }}</h1>
+        {% endblock %}
+    </header>
+
+    {% block project_content %}
+    <section class="postcontent">
+        {{ project.content|richtext }}
+    </section>
+    {% endblock %}
+</article>
+{% endif %}

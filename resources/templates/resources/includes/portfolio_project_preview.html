@@ -1,0 +1,33 @@
+{% extends "resources/includes/project_body.html" %}
+
+{% if project %}
+{% load staticfiles wagtailcore_tags wagtailimages_tags wagtailbase_tags %}
+
+{% block project_title %}
+{% comment %}
+<h2 class="posttitle">
+    <a href="{% pageurl project %}">{{ project.title }}</a>
+</h2>
+{% endcomment %}
+{% endblock %}
+
+{% block project_content %}
+<section class="postcontent">
+    {% with project.attachments.first as attachment %}
+    {% if attachment.image %}
+    <div class="thumb">
+        <div class="caption">
+            <h2 class="posttitle">
+                <a href="{% pageurl project %}">{{ project.title }}</a>
+            </h2>
+        </div>
+	    {% image attachment.image fill-600x600 as attachmentimagedata %}
+	    <img src="{{ attachmentimagedata.url }}" alt="{{ attachmentimagedata.alt }}
+	    ">
+    </div>
+    {% endif %}
+    {% endwith %}
+</section>
+{% endblock %}
+
+{% endif %}
