@@ -19,7 +19,7 @@ LOGGING_LEVEL = logging.DEBUG
 LOGGING['loggers']['django_auth_ldap']['level'] = LOGGING_LEVEL
 LOGGING['loggers']['kdl']['level'] = LOGGING_LEVEL
 
-TEMPLATE_DEBUG = DEBUG
+TEMPLATES[0]['OPTIONS']['debug'] = True
 
 # -----------------------------------------------------------------------------
 # Django Extensions
