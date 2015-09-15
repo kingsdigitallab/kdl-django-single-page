@@ -1,0 +1,15 @@
+{% if projects %}
+    {% load staticfiles wagtailcore_tags wagtailimages_tags wagtailbase_tags %}
+
+    {% if title %}
+    <h3>{{ title }}</h3>
+    {% endif %}
+
+    <ul class="{% if class %}{{ class }} {% endif %}small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+    {% for project in projects %}
+        <li>
+            {% include "resources/includes/portfolio_project_preview.html" with project=project %}
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}

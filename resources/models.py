@@ -3,6 +3,7 @@ from wagtailbase.base import (
 from wagtailbase.models import HomePage
 
 from model_utils.models import TimeStampedModel
+from django.shortcuts import render
 
 from modelcluster.tags import ClusterTaggableManager
 from modelcluster.fields import ParentalKey
@@ -12,6 +13,7 @@ from taggit.models import TaggedItemBase
 from wagtail.wagtailadmin.edit_handlers import (
     FieldPanel, InlinePanel, MultiFieldPanel)
 from wagtail.wagtailcore.models import Orderable
+from wagtail.contrib.wagtailroutablepage.models import route
 from wagtail.wagtailsearch import index
 
 
@@ -19,6 +21,19 @@ class PortfolioIndexPage(BaseIndexPage):
     search_name = 'Portfolio'
 
     subpage_types = ['ProjectPage']
+
+    @route(r'^$')
+    def serve_listing(self, request):
+        """main listing"""
+        projects = ProjectPage.objects.filter(
+            live=True, path__startswith=self.path).order_by('-created')
+
+        print projects
+
+        return render(request,
+                      self.get_template(request),
+                      {'self': self,
+                       'projects': projects })
 
 HomePage.register_subpage_type(PortfolioIndexPage)
 
