@@ -4,11 +4,6 @@
 {% load staticfiles wagtailcore_tags wagtailimages_tags wagtailbase_tags %}
 
 {% block project_title %}
-{% comment %}
-<h2 class="posttitle">
-    <a href="{% pageurl project %}">{{ project.title }}</a>
-</h2>
-{% endcomment %}
 {% endblock %}
 
 {% block project_content %}
@@ -16,14 +11,16 @@
     {% with project.attachments.first as attachment %}
     {% if attachment.image %}
     <div class="thumb">
-        <div class="caption">
-            <h2 class="posttitle">
-                <a href="{% pageurl project %}">{{ project.title }}</a>
-            </h2>
-        </div>
+        <a href="{% pageurl project %}"> {% comment %} This is now HTML5 valid {% endcomment %}
+            <div class="caption">
+                <h2 class="posttitle">
+                    {{ project.title }}
+                </h2>
+            </div>
+        </a>
 	    {% image attachment.image fill-600x600 as attachmentimagedata %}
-	    <img src="{{ attachmentimagedata.url }}" alt="{{ attachmentimagedata.alt }}
-	    ">
+	    <a href="{% pageurl project %}"><img src="{{ attachmentimagedata.url }}" alt="{{ attachmentimagedata.alt }}
+	    "></a>
     </div>
     {% endif %}
     {% endwith %}
