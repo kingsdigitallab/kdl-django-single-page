@@ -256,15 +256,29 @@ section.content-section {
 .image-caption {
 	position: relative;
 	.caption {
-		position: absolute;
-		bottom: 0;
-		background-color: rgba(255, 255, 255, .7);
+		background-color: rgba(255, 255, 255, .8);
 		padding: rem-calc(32px) rem-calc(16px) rem-calc(16px);
 		display: block;
 		font-size: rem-calc(14px);
 
+		/* p {
+			margin-bottom: rem-calc(8px);
+		} */
+
 		a {
 			color: darken(#fff, 10%);
+		}
+
+		/* .button {
+			margin-bottom: 0;
+			padding: rem-calc(12px);
+		} */
+	}
+
+	@media #{$large-up} {
+		.caption {
+			position: absolute;
+			bottom: 0;
 		}
 	}
 }
@@ -361,7 +375,6 @@ main {
 		.search-button {
 			margin-top: 0;
 			padding: 0;
-
 
 			&:hover {
 				color: #fff;
