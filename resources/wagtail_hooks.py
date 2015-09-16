@@ -29,7 +29,7 @@ hooks.register('insert_editor_css', editor_css)
 
 def editor_js():
     js_files = [
-        'javascripts/hallo.js',
+        'javascripts/hallo_source_editor.js',
     ]
 
     js_includes = format_html_join('\n', '<script src="{0}{1}"></script>',

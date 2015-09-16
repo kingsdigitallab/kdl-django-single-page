@@ -14,8 +14,8 @@
 	    	<div class="contain-to-grid caption">
 	    		<div class="row">
 		    		<div class="large-12 columns">
-		    			{{ self.content | richtext }}
-		    			<a href="#" class="button radius">Find out more</a>
+		    			{{ self.content | richtext | truncatewords_html:75 }}
+		    			<a href="/about/" class="button radius">Find out more</a>
 		    		</div>
 	    		</div>
 	    	</div>
@@ -30,12 +30,6 @@
 {% endblock %}
 
 {% block main %}
-<!-- <div class="row">
-	<div class="large-12 columns">
-	{{ self.content | richtext }}
-	</div>
-</div> -->
-
 {% block attachments %}
 {% include "wagtailbase/includes/attachments.html" with attachments=self.attachments.all|slice:"1:" title="Attachments" class="attachments" %}
 {% endblock %}
