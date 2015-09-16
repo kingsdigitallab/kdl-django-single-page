@@ -45,6 +45,9 @@ CACHES = {
     }
 }
 
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = True
+
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
 }
@@ -138,6 +141,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     'wagtail.wagtailcore.middleware.SiteMiddleware',
@@ -176,6 +180,8 @@ USE_L10N = False
 USE_TZ = True
 
 WSGI_APPLICATION = PROJECT_NAME + '.wsgi.application'
+
+X_FRAME_OPTIONS = 'DENY'
 
 
 # -----------------------------------------------------------------------------
@@ -218,6 +224,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_URL.strip('/'))
 if not os.path.exists(MEDIA_ROOT):
     os.makedirs(MEDIA_ROOT)
 
+# -----------------------------------------------------------------------------
+# Sessions
+# https://docs.djangoproject.com/en/1.8/ref/settings/#sessions
+# -----------------------------------------------------------------------------
+
+SESSION_COOKIE_SECURE = True
 
 # -----------------------------------------------------------------------------
 # Installed Applications Settings

@@ -2,7 +2,7 @@ from base import *
 
 DEBUG = True
 
-INTERNAL_IPS = ('kdl-dev.cch.kcl.ac.uk', )
+INTERNAL_IPS = INTERNAL_IPS + ('137.73.254.10', )
 
 DATABASES = {
     'default': {
@@ -10,7 +10,7 @@ DATABASES = {
         'NAME': 'app_kdl_dev',
         'USER': 'app_kdl',
         'PASSWORD': '',
-        'HOST': 'db-dev.kdl.cch.kcl.ac.uk'
+        'HOST': 'kdl.cch.kcl.ac.uk'
     },
 }
 
