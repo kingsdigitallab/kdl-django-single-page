@@ -7,19 +7,16 @@
 <div class="superimage">
 	{% if self.attachments.first.image %}
 	{% image self.attachments.first.image width-1200 as splashimagedata %}
-
 	<div class="image-caption">
-		<!-- <a href="{{ self.attachments.first.link }}"> -->
-	    	<img src="{{ splashimagedata.url }}" width="{{ splashimagedata.width }}" height="{{ splashimagedata.height }}" alt="{{ splashimagedata.alt }}" title="{{ self.attachments.first.caption }}">
-	    	<div class="contain-to-grid caption">
-	    		<div class="row">
-		    		<div class="large-12 columns">
-		    			{{ self.content | richtext | truncatewords_html:75 }}
-		    			<a href="/about/" class="button radius">Find out more</a>
-		    		</div>
+    	<img src="{{ splashimagedata.url }}" width="{{ splashimagedata.width }}" height="{{ splashimagedata.height }}" alt="{{ splashimagedata.alt }}" title="{{ self.attachments.first.caption }}">
+    	<div class="contain-to-grid caption">
+    		<div class="row">
+	    		<div class="large-12 columns">
+	    			{{ self.content | richtext | truncatewords_html:75 }}
+	    			<a href="/about/" class="button radius">Find out more</a>
 	    		</div>
-	    	</div>
-		<!-- </a> -->
+    		</div>
+    	</div>
 	</div>
 </div><!-- /.superimage -->
 {% endif %}
