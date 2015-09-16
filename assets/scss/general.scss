@@ -97,6 +97,10 @@ h1 {
 				@extend left;
 			}
 		}
+
+		.toggle-topbar {
+			left: 0;
+		}
 	}
 
 	.top-bar.primary.expanded {
