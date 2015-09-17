@@ -181,8 +181,6 @@ USE_TZ = True
 
 WSGI_APPLICATION = PROJECT_NAME + '.wsgi.application'
 
-X_FRAME_OPTIONS = 'DENY'
-
 
 # -----------------------------------------------------------------------------
 # Authentication
