@@ -11,15 +11,17 @@
     {% with project.attachments.first as attachment %}
     {% if attachment.image %}
     <div class="thumb">
-        <a href="{% pageurl project %}"> {% comment %} This is now HTML5 valid {% endcomment %}
+        <!-- <a href="{% pageurl project %}"> --> {% comment %} This is now HTML5 valid {% endcomment %}
+        <a href="{{ project.attachments.first.link_external }}" target="_blank">
             <div class="caption">
                 <h2 class="posttitle">
                     {{ project.title }}
                 </h2>
+                <p><i class="fa fa-link"></i> {{ project.attachments.first.link_external }}</p>
             </div>
         </a>
 	    {% image attachment.image fill-600x600 as attachmentimagedata %}
-	    <a href="{% pageurl project %}"><img src="{{ attachmentimagedata.url }}" alt="{{ attachmentimagedata.alt }}
+	    <!-- <a href="{% pageurl project %}"> --> <a href="{{ project.attachments.first.link_external }}" target="_blank"><img src="{{ attachmentimagedata.url }}" alt="{{ attachmentimagedata.alt }}
 	    "></a>
     </div>
     {% endif %}
