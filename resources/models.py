@@ -121,6 +121,7 @@ class StaffIndexPageAttachment(Orderable, AbstractAttachment):
 StaffIndexPage.content_panels = [
     FieldPanel('title', classname='full title'),
     FieldPanel('introduction', classname='full'),
+#    InlinePanel(StaffIndexPage, 'job-title', label='Job title'),
     InlinePanel(StaffIndexPage, 'related_links', label='Related links'),
     InlinePanel(StaffIndexPage, 'attachments', label='Attachments')
 ]

@@ -1,0 +1,24 @@
+{% if staff %}
+    {% load staticfiles wagtailcore_tags wagtailimages_tags wagtailbase_tags %}
+
+    {% if title %}
+    <h3>{{ title }}</h3>
+    {% endif %}
+
+    <ul class="{% if class %}{{ class }} {% endif %}small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+    {% for page in staff %}
+        <li class="center">
+            {% with page.attachments.first as attachment %}
+            {% if attachment.image %}
+            <div class="staff-member circle">
+                {% image attachment.image fill-600x600 as attachmentimagedata %}
+                <a href="{% pageurl page %}"><img src="{{ attachmentimagedata.url }}" alt="{{ attachmentimagedata.alt }}"></a>
+            </div>
+            <h3><a href="{% pageurl page %}">{{ page.title }}</a></h3>
+            <p><em>{{ page.attachments.first.caption }}</em><br><a href="{{ page.attachments.first.link_external }}"><i class="fa fa-linkedin-square fa-2x"></i></a></p>
+            {% endif %}
+            {% endwith %}
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}

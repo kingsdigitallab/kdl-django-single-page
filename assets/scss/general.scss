@@ -27,6 +27,12 @@ body {
 	max-width: 1200px;
 }
 
+.center {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .shades-eighty {
 	background-color: scale-color($secondary-color, $lightness: 85%);
 }
@@ -390,6 +396,23 @@ main {
 			}
 		}
 	}
+}
+
+/* Staff */
+
+.circle,
+.circle img {
+	border-radius: 50%;
+	display: inline-block;
+	min-height: 200px;
+	min-width: 200px;
+}
+
+.staff-member {
+	width: 200px;
+	height: 200px;
+	background: url("/static/media/images/staff-placeholder.png") center center no-repeat;
+	background-size: 100%;
 }
 
 /* Buttons */
