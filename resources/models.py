@@ -26,7 +26,7 @@ class PortfolioIndexPage(BaseIndexPage):
         """Returns all the project pages that are live, sorted by the date they
         were created."""
         projects = ProjectPage.objects.filter(
-            live=True, path__startswith=self.path).order_by('-created')
+            live=True, path__startswith=self.path)
 
         return render(request, self.get_template(request),
                       {'self': self, 'projects': projects})
