@@ -3,12 +3,12 @@
 // King's Secondary font Bureau Grotesk 37
 @font-face {
 	font-family: 'bureaugrotesque-threesevenRg';
-	src: url('bureaugrotesk37-webfont.eot');
-	src: url('bureaugrotesk37-webfont.eot?#iefix') format('embedded-opentype'),
-		 url('bureaugrotesk37-webfont.woff2') format('woff2'),
-		 url('bureaugrotesk37-webfont.woff') format('woff'),
-		 url('bureaugrotesk37-webfont.ttf') format('truetype'),
-		 url('bureaugrotesk37-webfont.svg#bureaugrotesque-threesevenRg') format('svg');
+	src: url('/static/fonts/bureaugrotesk37-webfont.eot');
+	src: url('/static/fonts/bureaugrotesk37-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('/static/fonts/bureaugrotesk37-webfont.woff2') format('woff2'),
+		 url('/static/fonts/bureaugrotesk37-webfont.woff') format('woff'),
+		 url('/static/fonts/bureaugrotesk37-webfont.ttf') format('truetype'),
+		 url('/static/fonts/bureaugrotesk37-webfont.svg#bureaugrotesque-threesevenRg') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -42,6 +42,14 @@ body {
 h1 {
 	font-family: 'kings-caslon-display', serif; // Via TypeKit
 	color: $midnight-blue;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'bureaugrotesque-threesevenRg', sans-serif;
 }
 
 /* Header */
