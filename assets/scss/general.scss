@@ -316,6 +316,7 @@ section.content-section {
 .posts li {
 	border-bottom: 1px solid scale-color($secondary-color, $lightness: 50%);
 	margin: 1rem 0 .5rem;
+	padding-bottom: 1rem;
 	display: block;
 	clear: both;
 	overflow: hidden;
@@ -335,6 +336,7 @@ h2.posttitle {
 	font-family: 'FontAwesome';
 	font-style: normal;
 	color: scale-color($tertiary-color, $lightness: 30%);
+	padding-right: 2px;
 }
 
 /* Search */

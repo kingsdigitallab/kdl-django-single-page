@@ -14,9 +14,9 @@
         <!-- <a href="{% pageurl project %}"> --> {% comment %} This is now HTML5 valid {% endcomment %}
         <a href="{{ project.attachments.first.link_external }}" target="_blank">
             <div class="caption">
-                <h2 class="posttitle">
+                <h3 class="posttitle">
                     {{ project.title }}
-                </h2>
+                </h3>
                 <p><i class="fa fa-link"></i> {{ project.attachments.first.link_external }}</p>
             </div>
         </a>
