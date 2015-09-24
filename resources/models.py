@@ -105,7 +105,7 @@ class StaffIndexPage(BaseIndexPage):
     def serve_listing(self, request):
         """Returns all the staff pages that are live, sorted by title."""
         staff = RichTextPage.objects.filter(
-            live=True, path__startswith=self.path).order_by('title')
+            live=True, path__startswith=self.path)
 
         return render(request, self.get_template(request),
                       {'self': self, 'staff': staff})
