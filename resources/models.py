@@ -1,19 +1,23 @@
-from wagtailbase.base import (
-    AbstractRelatedLink, AbstractAttachment, BaseIndexPage, BaseRichTextPage)
-from wagtailbase.models import HomePage, RichTextPage
-
-from model_utils.models import TimeStampedModel
+from django.db import models
 from django.shortcuts import render
 
-from modelcluster.tags import ClusterTaggableManager
+from model_utils.models import TimeStampedModel
+
 from modelcluster.fields import ParentalKey
+from modelcluster.tags import ClusterTaggableManager
 
 from taggit.models import TaggedItemBase
 
+from wagtail.contrib.wagtailroutablepage.models import route
 from wagtail.wagtailadmin.edit_handlers import (
     FieldPanel, InlinePanel, MultiFieldPanel)
 from wagtail.wagtailcore.models import Orderable
-from wagtail.contrib.wagtailroutablepage.models import route
+from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
+from wagtail.wagtailimages.models import Image
+
+from wagtailbase.base import (
+    AbstractRelatedLink, AbstractAttachment, BaseIndexPage, BaseRichTextPage)
+from wagtailbase.models import HomePage, RichTextPage
 
 
 class PortfolioIndexPage(BaseIndexPage):
@@ -95,7 +99,7 @@ ProjectPage.promote_panels = [
 class StaffIndexPage(BaseIndexPage):
     search_name = 'Staff'
 
-    subpage_types = ['wagtailbase.RichTextPage']
+    subpage_types = ['wagtailbase.RichTextPage', 'resources.StaffPage']
 
     @route(r'^$')
     def serve_listing(self, request):
@@ -121,12 +125,58 @@ class StaffIndexPageAttachment(Orderable, AbstractAttachment):
 StaffIndexPage.content_panels = [
     FieldPanel('title', classname='full title'),
     FieldPanel('introduction', classname='full'),
-#    InlinePanel(StaffIndexPage, 'job-title', label='Job title'),
     InlinePanel(StaffIndexPage, 'related_links', label='Related links'),
     InlinePanel(StaffIndexPage, 'attachments', label='Attachments')
 ]
 
 StaffIndexPage.promote_panels = [
     MultiFieldPanel(BaseIndexPage.promote_panels,
+                    'Common page configuration'),
+]
+
+
+class StaffPage(BaseRichTextPage, TimeStampedModel):
+    job_title = models.CharField(max_length=256)
+    email = models.EmailField(max_length=256)
+    kcl_url = models.URLField(
+        max_length=256, blank=True, null=True, verbose_name='KCL staff page')
+    linkedin_url = models.URLField(
+        max_length=256, blank=True, null=True, verbose_name='LinkedIn')
+    twitter = models.CharField(max_length=64, blank=True, null=True)
+    photo = models.ForeignKey(
+        Image, blank=True, null=True, on_delete=models.SET_NULL,
+        related_name='+')
+
+    subpage_types = []
+
+    search_name = 'Staff page'
+
+
+class StaffPageRelatedLink(Orderable, AbstractRelatedLink):
+    page = ParentalKey(
+        'resources.StaffPage', related_name='related_links')
+
+
+class StaffPageAttachment(Orderable, AbstractAttachment):
+    page = ParentalKey('resources.StaffPage', related_name='attachments')
+
+
+StaffPage.content_panels = [
+    FieldPanel('title', classname='full title'),
+    FieldPanel('job_title', classname='full'),
+    FieldPanel('email', classname='full'),
+    FieldPanel('content', classname='full'),
+    MultiFieldPanel([
+        FieldPanel('kcl_url'),
+        FieldPanel('linkedin_url'),
+        FieldPanel('twitter')
+    ], 'Links'),
+    ImageChooserPanel('photo'),
+    InlinePanel(ProjectPage, 'related_links', label='Related links'),
+    InlinePanel(ProjectPage, 'attachments', label='Attachments')
+]
+
+StaffPage.promote_panels = [
+    MultiFieldPanel(BaseRichTextPage.promote_panels,
                     'Common page configuration'),
 ]
