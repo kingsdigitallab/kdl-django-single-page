@@ -270,18 +270,9 @@ section.content-section {
 		display: block;
 		font-size: rem-calc(14px);
 
-		/* p {
-			margin-bottom: rem-calc(8px);
-		} */
-
 		a {
 			color: darken(#fff, 10%);
 		}
-
-		/* .button {
-			margin-bottom: 0;
-			padding: rem-calc(12px);
-		} */
 	}
 
 	@media #{$large-up} {
@@ -412,8 +403,6 @@ main {
 .staff-member {
 	width: 200px;
 	height: 200px;
-	background: url("/static/media/images/staff-placeholder.png") center center no-repeat;
-	background-size: 100%;
 }
 
 /* Buttons */
