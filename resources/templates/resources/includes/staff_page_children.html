@@ -15,7 +15,7 @@
                 <!-- <a href="{% pageurl page %}"> --><img src="{{ attachmentimagedata.url }}" alt="{{ attachmentimagedata.alt }}"><!-- </a> -->
             </div>
             <h3><!-- <a href="{% pageurl page %}"> -->{{ page.title }}<!-- </a> --></h3>
-            <p><em>{{ page.attachments.first.caption }}</em><br><a href="{{ page.attachments.first.link_external }}"><i class="fa fa-linkedin-square fa-2x"></i></a></p>
+            <p><em>{{ page.job_title }}</em><br><a href="{{ page.attachments.first.link_external }}"><i class="fa fa-linkedin-square fa-2x"></i></a></p>
             {% endif %}
             {% endwith %}
         </li>
