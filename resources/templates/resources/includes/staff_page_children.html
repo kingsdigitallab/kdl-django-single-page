@@ -5,23 +5,18 @@
     <h3>{{ title }}</h3>
     {% endif %}
 
-    <ul class="{% if class %}{{ class }} {% endif %}small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+    <ul class="{% if class %}{{ class }} {% endif %}staff-list small-block-grid-1 medium-block-grid-2 large-block-grid-3">
     {% for page in staff %}
         <li class="center">
-            {# with page.photo as attachment #}
-            {# if attachment.image #}
             <div class="staff-member circle">
                 {% image page.photo fill-600x600 as attachmentimagedata %}
                 <!-- <a href="{% pageurl page %}"> --><img src="{{ attachmentimagedata.url }}" alt="{{ attachmentimagedata.alt }}"><!-- </a> -->
             </div>
             <h3><!-- <a href="{% pageurl page %}"> -->{{ page.title }}<!-- </a> --></h3>
-            <p><em>{{ page.job_title }}</em><br>
-                <a href="mailto:{{ page.email }}"><i class="fa fa-envelope"></i> {{ page.email }}</a><br>
-                <a href="{{ page.kcl_url }}" target="_blank"><i class="fa fa-link"></i> Staff page on kcl.ac.uk</a>
-            </p>
-            <p><a href="{{ page.linkedin_url }}"><i class="fa fa-linkedin-square fa-2x"></i></a>{% if page.twitter %} <a href="https://twitter.com/{{ page.twitter }}"><i class="fa fa-twitter-square fa-2x"></i></a>{% endif %}</p>
-            {# endif #}
-            {# endwith #}
+            <p><em>{{ page.job_title }}</em></p>
+            <p>{% if page.email %}<a href="mailto:{{ page.email }}"><i class="fa fa-envelope"></i> {{ page.email }}</a>{% endif %}</p>
+            <p>{% if page.kcl_url %}<a href="{{ page.kcl_url }}" target="_blank"><i class="fa fa-link"></i> Staff page on kcl.ac.uk</a>{% endif %}</p>
+            <p>{% if page.linkedin_url %}<a href="{{ page.linkedin_url }}"><i class="fa fa-linkedin-square fa-2x"></i></a>{% endif %}{% if page.twitter %} <a href="https://twitter.com/{{ page.twitter }}"><i class="fa fa-twitter-square fa-2x"></i></a>{% endif %}</p>
         </li>
     {% endfor %}
     </ul>

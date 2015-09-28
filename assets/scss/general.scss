@@ -405,6 +405,16 @@ main {
 	height: 200px;
 }
 
+.staff-list {
+	p {
+		margin: 0;
+	}
+	p:empty {
+		height: 1.6rem;
+		display: block;
+	}
+}
+
 /* Buttons */
 
 .button,
