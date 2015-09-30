@@ -39,11 +39,7 @@ body {
 
 /* Headings */
 
-h1 {
-	font-family: 'kings-caslon-display', serif; // Via TypeKit
-	color: $midnight-blue;
-}
-
+h1,
 h2,
 h3,
 h4,
@@ -57,26 +53,35 @@ h6 {
 .header-section {
 	// @include grid-row();
 	position: relative;
-	min-height: 240px;
-	padding-top: 2rem;
-	background: url('/static/images/header.svg');
+	background: url('/static/images/banner2-unsplash-com-by-Jeff-Sheldon.jpg') center no-repeat;
+	background-size: cover;
+	text-align: center;
+
+	a {
+		color: white;
+	}
+
+	.blackd {
+		background: rgba(0, 0, 0, .7);
+		display: block;
+		overflow: hidden !important;
+	}
 
 	.header-logo {
 		width: rem-calc(196px);
 		height: auto;
+		margin: 0 auto;
 		padding-left: rem-calc(14px);
 		display: block;
 	}
 
 	h1 {
-		text-align: right;
-		padding-right: rem-calc(16px);
-		margin-top: rem-calc(120px);
+		margin: rem-calc(120px) 0;
 	}
 
 	@media #{$small-only} {
 		h1 {
-			margin-top: 0;
+			margin: rem-calc(40px) 0;
 		}
 		.header-logo {
 			width: rem-calc(147px);
@@ -85,7 +90,7 @@ h6 {
 
 	@media #{$medium-only} {
 		h1 {
-			margin-top: 0;
+			margin: rem-calc(60px) 0;
 		}
 		.header-logo {
 			width: rem-calc(147px);
@@ -94,6 +99,10 @@ h6 {
 }
 
 /* Navigation */
+
+section.top-bar-section {
+	padding-top: 0;
+}
 
 .main-navigation-container {
 
@@ -156,37 +165,16 @@ h6 {
 	width: 100%;
 }
 
-.home section.content-section {
-	display: none;
-}
-
 /* Main section */
 
 section.content-section {
-	@include grid-row();
+	// @include grid-row();
 	background-color: #fff;
 	padding-left: rem-calc(16px);
 	padding-right: rem-calc(16px);
 
-	#messages {
-		@include grid-sizing(12, 12, 12);
-		list-style-type: none;
-		margin-left: 0;
-		margin-bottom: 0;
-		margin-top: rem-calc(20px);
-
-		li {
-			@include alert();
-			list-style-type: none;
-
-			 &.error {
-				@include alert-style(#a54836);
-			 }
-		}
-	}
-
 	main {
-		@include grid-sizing(12, 12, 8);
+		// @include grid-sizing(12, 12, 8);
 		background-color: #fff;
 		margin-top: rem-calc(20px);
 		padding-left: 0 !important;
@@ -194,7 +182,7 @@ section.content-section {
 	}
 
 	main.full-width {
-		@include grid-sizing(12, 12, 12);
+		// @include grid-sizing(12, 12, 12);
 		float: none;
 		position: relative;
 	}
@@ -223,12 +211,12 @@ section.content-section {
 		}
 
 		.attachments {
-			@include block-grid(3);
+			// @include block-grid(3);
 		}
 	}
 
 	.sidebar {
-		@include grid-sizing(12, 12, 4);
+		// @include grid-sizing(12, 12, 4);
 
 		aside {
 			margin: rem-calc(20px) 0;
@@ -259,6 +247,10 @@ section.content-section {
 				}
 			}
 		}
+	}
+
+	section {
+		padding: 50px 0;
 	}
 }
 
