@@ -11,13 +11,45 @@ from taggit.models import TaggedItemBase
 from wagtail.contrib.wagtailroutablepage.models import route
 from wagtail.wagtailadmin.edit_handlers import (
     FieldPanel, InlinePanel, MultiFieldPanel)
+from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.models import Orderable
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailimages.models import Image
 
 from wagtailbase.base import (
     AbstractRelatedLink, AbstractAttachment, BaseIndexPage, BaseRichTextPage)
-from wagtailbase.models import HomePage, RichTextPage
+from wagtailbase.models import HomePage
+
+
+class SplashPage(BaseRichTextPage):
+    mission_statement = RichTextField()
+    contact = RichTextField()
+    contact_map = models.TextField(
+        blank=True, help_text='HTML to display inline map')
+
+    search_name = 'Spash Page'
+    subpage_types = ['IndexPage', 'RichTextPage',
+                     'BlogIndexPage', 'PortfolioIndexPage', 'StaffIndexPage']
+
+    @property
+    def staff(self):
+        return StaffPage.objects.filter(live=True, path__startswith=self.path)
+
+
+class SplashPageSnippet(Orderable):
+    page = ParentalKey('resources.SplashPage', related_name='snippets')
+    title = models.CharField(max_length=256)
+    content = RichTextField()
+    class_name = models.CharField(max_length=256, blank=True, null=True)
+
+SplashPage.content_panels = [
+    FieldPanel('title', classname='full title'),
+    FieldPanel('content', classname='full'),
+    FieldPanel('mission_statement', classname='full'),
+    InlinePanel(SplashPageSnippet, 'snippets', label='Snippets'),
+    FieldPanel('contact', classname='full'),
+    FieldPanel('contact_map', classname='full')
+]
 
 
 class PortfolioIndexPage(BaseIndexPage):
