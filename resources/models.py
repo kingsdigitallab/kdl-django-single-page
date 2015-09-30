@@ -29,7 +29,7 @@ class SplashPage(BaseRichTextPage):
 
     search_name = 'Splash Page'
     subpage_types = ['wagtailbase.IndexPage', 'wagtailbase.RichTextPage',
-                     'wagtailbase.logIndexPage', 'PortfolioIndexPage',
+                     'wagtailbase.BlogIndexPage', 'PortfolioIndexPage',
                      'StaffIndexPage']
 
     @property
@@ -53,7 +53,7 @@ SplashPage.content_panels = [
     FieldPanel('contact_map', classname='full')
 ]
 
-SplashPage.promote_panels = [
+StaffPage.promote_panels = [
     MultiFieldPanel(BaseRichTextPage.promote_panels,
                     'Common page configuration'),
 ]
