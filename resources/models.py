@@ -53,7 +53,7 @@ SplashPage.content_panels = [
     FieldPanel('contact_map', classname='full')
 ]
 
-StaffPage.promote_panels = [
+SplashPage.promote_panels = [
     MultiFieldPanel(BaseRichTextPage.promote_panels,
                     'Common page configuration'),
 ]
