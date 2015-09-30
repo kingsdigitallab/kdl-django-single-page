@@ -27,9 +27,10 @@ class SplashPage(BaseRichTextPage):
     contact_map = models.TextField(
         blank=True, help_text='HTML to display inline map')
 
-    search_name = 'Spash Page'
-    subpage_types = ['IndexPage', 'RichTextPage',
-                     'BlogIndexPage', 'PortfolioIndexPage', 'StaffIndexPage']
+    search_name = 'Splash Page'
+    subpage_types = ['wagtailbase.IndexPage', 'wagtailbase.RichTextPage',
+                     'wagtailbase.logIndexPage', 'PortfolioIndexPage',
+                     'StaffIndexPage']
 
     @property
     def staff(self):
@@ -42,6 +43,7 @@ class SplashPageSnippet(Orderable):
     content = RichTextField()
     class_name = models.CharField(max_length=256, blank=True, null=True)
 
+
 SplashPage.content_panels = [
     FieldPanel('title', classname='full title'),
     FieldPanel('content', classname='full'),
@@ -49,6 +51,11 @@ SplashPage.content_panels = [
     InlinePanel(SplashPageSnippet, 'snippets', label='Snippets'),
     FieldPanel('contact', classname='full'),
     FieldPanel('contact_map', classname='full')
+]
+
+SplashPage.promote_panels = [
+    MultiFieldPanel(BaseRichTextPage.promote_panels,
+                    'Common page configuration'),
 ]
 
 
