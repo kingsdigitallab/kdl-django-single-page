@@ -23,10 +23,12 @@
 			<h1>Staff</h1>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 			{% block staff_page_children %}
-			{% include "resources/includes/staff_page_children.html" with page=staff %}
-			{% endblock %}
-		</div>
-	</div>
+            {% with staff=self.staff %}
+            {% include "resources/includes/staff_page_children.html" with staff=staff %}
+            {% endwith %}
+            {% endblock %}
+        </div>
+    </div>
 </section>
 <section id="contact" class="bg-shade-three">
 	<div class="row">
