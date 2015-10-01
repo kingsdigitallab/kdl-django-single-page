@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block main %}
-<section id="mission">
+<section id="mission" class="bg-shade-one">
 	<div class="row">
 		<div class="large-12 columns">
 			<h1>Mission</h1>
@@ -17,15 +17,18 @@
 		</div>
 	</div>
 </section>
-<section id="staff">
+<section id="staff" class="bg-shade-two">
 	<div class="row">
 		<div class="large-12 columns">
 			<h1>Staff</h1>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			{% block staff_page_children %}
+			{% include "resources/includes/staff_page_children.html" with page=staff %}
+			{% endblock %}
 		</div>
 	</div>
 </section>
-<section id="contact">
+<section id="contact" class="bg-shade-three">
 	<div class="row">
 		<div class="large-12 columns">
 			<h1>Get in touch</h1>

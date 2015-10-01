@@ -1,7 +1,7 @@
 /* Global */
 
 // King's Secondary font Bureau Grotesk 37
-@font-face {
+/* @font-face {
 	font-family: 'bureaugrotesque-threesevenRg';
 	src: url('/static/fonts/bureaugrotesk37-webfont.eot');
 	src: url('/static/fonts/bureaugrotesk37-webfont.eot?#iefix') format('embedded-opentype'),
@@ -11,7 +11,7 @@
 		 url('/static/fonts/bureaugrotesk37-webfont.svg#bureaugrotesque-threesevenRg') format('svg');
 	font-weight: normal;
 	font-style: normal;
-}
+} */
 
 html {
 	height: 100%;
@@ -33,8 +33,22 @@ body {
 	margin-right: auto;
 }
 
+/* Colours */
+
 .shades-eighty {
 	background-color: scale-color($secondary-color, $lightness: 85%);
+}
+
+.bg-shade-one {
+	background-color: scale-color($primary-color, $lightness: 60%);
+}
+
+.bg-shade-two {
+	background-color: scale-color($primary-color, $lightness: 70%);
+}
+
+.bg-shade-three {
+	background-color: scale-color($primary-color, $lightness: 80%);
 }
 
 /* Headings */
@@ -45,7 +59,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: 'bureaugrotesque-threesevenRg', sans-serif;
+	font-weight: 700;
 }
 
 /* Header */
@@ -170,15 +184,15 @@ section.top-bar-section {
 section.content-section {
 	// @include grid-row();
 	background-color: #fff;
-	padding-left: rem-calc(16px);
-	padding-right: rem-calc(16px);
+	/* padding-left: rem-calc(16px);
+	padding-right: rem-calc(16px); */
 
 	main {
 		// @include grid-sizing(12, 12, 8);
 		background-color: #fff;
-		margin-top: rem-calc(20px);
-		padding-left: 0 !important;
-		padding-right: 0 !important;
+		/* margin-top: rem-calc(20px); */
+		/* padding-left: 0 !important;
+		padding-right: 0 !important; */
 	}
 
 	main.full-width {
@@ -318,7 +332,7 @@ h2.posttitle {
 	content: "\f007 ";
 	font-family: 'FontAwesome';
 	font-style: normal;
-	color: scale-color($tertiary-color, $lightness: 30%);
+	color: scale-color($primary-color, $lightness: 30%);
 	padding-right: 2px;
 }
 
@@ -441,14 +455,18 @@ button:hover {
 
 .footer-section {
 	// @include grid-row();
-	background-color: scale-color($tertiary-color, $lightness: 80%);
-	border-top: 1px solid $gray-subtle;
+	background-color: $primary-color;
+	border-top: scale-color($primary-color, $lightness: -20%);
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 
 	p,
 	ul {
 		font-size: rem-calc(14px);
+	}
+
+	a {
+		color: #fff !important;
 	}
 
 	.narrow-footer-column {

@@ -1,3 +1,4 @@
+{% comment %}
 {% extends "wagtailbase/base.html" %}
 
 {% block main %}
@@ -5,11 +6,13 @@
 {% block staff_page_introduction %}
 {% include "wagtailbase/includes/introduction.html" with introduction=self.introduction only %}
 {% endblock %}
+{% endcomment %}
 
 {% block staff_page_children %}
 {% include "resources/includes/staff_page_children.html" with page=staff %}
 {% endblock %}
 
+{% comment %}
 {% block attachments %}
 {% include "wagtailbase/includes/attachments.html" with attachments=self.attachments.all title="Attachments" %}
 {% endblock %}
@@ -19,3 +22,4 @@
 {% endblock %}
 
 {% endblock %}
+{% endcomment %}
