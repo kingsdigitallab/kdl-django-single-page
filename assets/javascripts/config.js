@@ -4,7 +4,7 @@ $(document).ready(function() {
     $('a.page-scroll').bind('click', function(event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
-            scrollTop: ($($anchor.attr('href')).offset().top - 180)
+            scrollTop: ($($anchor.attr('href')).offset().top - $('.main-navigation-container').height())
         }, 1250, 'easeInOutExpo');
         event.preventDefault();
     });

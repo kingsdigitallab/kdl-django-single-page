@@ -1,18 +1,5 @@
 /* Global */
 
-// King's Secondary font Bureau Grotesk 37
-/* @font-face {
-	font-family: 'bureaugrotesque-threesevenRg';
-	src: url('/static/fonts/bureaugrotesk37-webfont.eot');
-	src: url('/static/fonts/bureaugrotesk37-webfont.eot?#iefix') format('embedded-opentype'),
-		 url('/static/fonts/bureaugrotesk37-webfont.woff2') format('woff2'),
-		 url('/static/fonts/bureaugrotesk37-webfont.woff') format('woff'),
-		 url('/static/fonts/bureaugrotesk37-webfont.ttf') format('truetype'),
-		 url('/static/fonts/bureaugrotesk37-webfont.svg#bureaugrotesque-threesevenRg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-} */
-
 html {
 	height: 100%;
 }
@@ -60,6 +47,7 @@ h4,
 h5,
 h6 {
 	font-weight: 700;
+	text-align: center;
 }
 
 /* Header */
@@ -182,55 +170,18 @@ section.top-bar-section {
 /* Main section */
 
 section.content-section {
-	// @include grid-row();
 	background-color: #fff;
-	/* padding-left: rem-calc(16px);
-	padding-right: rem-calc(16px); */
 
 	main {
-		// @include grid-sizing(12, 12, 8);
 		background-color: #fff;
-		/* margin-top: rem-calc(20px); */
-		/* padding-left: 0 !important;
-		padding-right: 0 !important; */
 	}
 
 	main.full-width {
-		// @include grid-sizing(12, 12, 12);
 		float: none;
 		position: relative;
 	}
 
-	main {
-
-		h1 {
-			font-size: rem-calc(36px);
-			margin: rem-calc(5px) 0;
-		}
-
-		h1.home-page-title {
-			margin: 20px 0;
-		}
-
-		img {
-			display:block;
-		}
-
-		img.richtext-image.left {
-			margin-right: rem-calc(20px);
-		}
-
-		img.richtext-image.right {
-			margin-left: rem-calc(20px);
-		}
-
-		.attachments {
-			// @include block-grid(3);
-		}
-	}
-
 	.sidebar {
-		// @include grid-sizing(12, 12, 4);
 
 		aside {
 			margin: rem-calc(20px) 0;
@@ -398,12 +349,19 @@ main {
 
 /* Staff */
 
-.circle,
-.circle img {
+.circle {
 	border-radius: 50%;
 	display: inline-block;
 	min-height: 200px;
 	min-width: 200px;
+	border: 10px solid scale-color($primary-color, $lightness: 40%);
+	background-color: scale-color($primary-color, $lightness: 40%);
+}
+
+.circle img {
+	border-radius: 50%;
+	width: 100%;
+	background-color: scale-color($primary-color, $lightness: 40%);
 }
 
 .staff-member {
@@ -441,6 +399,8 @@ button:hover {
     padding-top: 35px;
     height: 0;
     overflow: hidden;
+    border: 10px solid scale-color($primary-color, $lightness: 50%);
+    border-radius: 4px;
 }
 
 .iframe-container iframe {
