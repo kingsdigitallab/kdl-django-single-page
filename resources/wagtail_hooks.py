@@ -7,7 +7,7 @@ from wagtail.wagtailcore.whitelist import attribute_rule, check_url, allow_witho
 
 def whitelister_element_rules():
     return {
-        'a': attribute_rule({'href': check_url, 'id': True}),
+        'a': attribute_rule({'href': check_url, 'id': True, 'class': True}),
         'span': attribute_rule({'class': True}),
         'i': attribute_rule({'class': True}),
     }

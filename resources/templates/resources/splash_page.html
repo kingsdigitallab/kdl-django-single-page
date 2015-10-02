@@ -15,19 +15,19 @@
 			<h1>Mission</h1>
 			<hr>
 			{{ self.mission_statement|richtext }}
-			{# if self.snippets #}
-			<ul class="small-block-grid-3">
+
+			<hr>
+			{% with snippets=self.snippets.all %}
+			<ul class="small-block-grid-1 large-block-grid-3">
+				{% for page in snippets %}
 				<li>
-					<h2></h2>
+					<div class="splash-icon"><i class="fa {{ page.class_name }} fa-3x"></i></div>
+					<h2>{{ page.title }}</h2>
+					<p>{{ page.content|richtext }}</p>
 				</li>
-				<li>
-					<h2></h2>
-				</li>
-				<li>
-					<h2></h2>
-				</li>
+				{% endfor %}
 			</ul>
-			{# endif #}
+			{% endwith %}
 		</div>
 	</div>
 </section>
