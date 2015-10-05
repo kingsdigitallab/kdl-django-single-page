@@ -20,4 +20,16 @@ $(document).ready(function() {
     // Initialize WOW.js Scrolling Animations
     new WOW().init();
 
+    // Expande/collapse for read-more
+    $('.read-more').bind("click", function() {
+        $('.more').slideToggle(400).removeClass("hidden");
+        $(this).hide();
+        return false;
+    });
+    $('.read-less').bind("click", function() {
+        $('.more').slideToggle().addClass("hidden");
+        $('.read-more').show();
+        return false;
+    });
+
 });
