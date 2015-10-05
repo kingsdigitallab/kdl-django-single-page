@@ -204,7 +204,7 @@ section.content-section {
 
 /* Hyphens to break words in block-grid */
 
-[class*="block-grid-"] p {
+#mission [class*="block-grid-"] p {
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
 	-ms-hyphens: auto;
