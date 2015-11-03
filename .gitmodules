@@ -1,3 +1,6 @@
 [submodule "ddhldap"]
 	path = ddhldap
 	url = git@github.com:kingsdigitallab/ddhldap-django.git
+[submodule "wagtailbase"]
+	path = wagtailbase
+	url = git@github.com:kingsdigitallab/wagtailbase.git
